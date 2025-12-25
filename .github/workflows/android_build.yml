@@ -1,0 +1,57 @@
+name: Build and Release Android App
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_note:
+        description: 'Release Note'
+        required: false
+        default: 'Manual Build'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x easycontrolfork/gradlew
+
+      - name: Build with Gradle
+        run: |
+          cd easycontrolfork
+          ./gradlew :app:assembleRelease
+
+      - name: Generate Tag Name
+        id: tag
+        run: |
+          echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
+          echo "release_date=$(date +"%Y-%m-%d %H:%M")" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.release_tag }}
+          name: EasyControl Release ${{ steps.tag.outputs.release_tag }}
+          body: |
+            Build Date: ${{ steps.tag.outputs.release_date }}
+            Note: ${{ github.event.inputs.release_note }}
+          draft: false
+          prerelease: false
+          files: |
+            easycontrolfork/app/build/outputs/apk/release/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
