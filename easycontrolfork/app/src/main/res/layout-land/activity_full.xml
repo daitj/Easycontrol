@@ -20,6 +20,14 @@
     android:orientation="horizontal">
 
     <LinearLayout
+      android:id="@+id/texture_view_layout"
+      android:layout_width="0dp"
+      android:layout_height="match_parent"
+      android:layout_weight="1"
+      android:gravity="center"
+      android:orientation="horizontal" />
+
+    <LinearLayout
       android:id="@+id/nav_bar"
       android:layout_width="40dp"
       android:layout_height="match_parent"
@@ -71,21 +79,13 @@
         android:tint="@color/onCardBackground" />
 
     </LinearLayout>
-
-    <LinearLayout
-      android:id="@+id/texture_view_layout"
-      android:layout_width="0dp"
-      android:layout_height="match_parent"
-      android:layout_weight="1"
-      android:gravity="center"
-      android:orientation="horizontal" />
   </LinearLayout>
 
   <ImageView
     android:id="@+id/button_more"
     android:layout_width="40dp"
     android:layout_height="60dp"
-    android:layout_gravity="top|start"
+    android:layout_gravity="top|end"
     android:focusable="false"
     android:padding="2dp"
     android:rotation="90"
@@ -97,8 +97,8 @@
     android:id="@+id/bar_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="top|start"
-    android:layout_marginStart="60dp"
+    android:layout_gravity="top|end"
+    android:layout_marginEnd="60dp"
     android:layout_marginTop="25dp"
     android:background="@drawable/background_cron"
     android:elevation="6dp"
@@ -196,6 +196,5 @@
         android:src="@drawable/lightbulb_off"
         android:tint="@color/onCardBackground" />
     </LinearLayout>
-
   </LinearLayout>
 </FrameLayout>
