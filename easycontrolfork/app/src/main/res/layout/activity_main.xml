@@ -71,6 +71,7 @@
         android:padding="10dp"
         android:src="@drawable/bars"
         android:tint="@color/onBackground" />
+
     </LinearLayout>
 
     <ImageView
