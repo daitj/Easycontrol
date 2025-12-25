@@ -39,7 +39,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x easycontrolfork/gradlew
 
-      - name: Build with Gradle
+      - name: Build Server and Copy Resource
+        run: |
+          cd easycontrolfork
+          ./gradlew :server:copyRelease
+
+      - name: Build App
         run: |
           cd easycontrolfork
           ./gradlew :app:assembleRelease
