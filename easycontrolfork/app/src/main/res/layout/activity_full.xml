@@ -30,7 +30,7 @@
     <LinearLayout
       android:id="@+id/nav_bar"
       android:layout_width="match_parent"
-      android:layout_height="60dp"
+      android:layout_height="50dp"
       android:background="@color/background"
       android:gravity="center_vertical"
       android:orientation="horizontal"
@@ -43,7 +43,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:focusable="false"
-        android:padding="15dp"
+        android:padding="12dp"
         android:src="@drawable/caret_left"
         android:tint="@color/onBackground" />
 
@@ -53,7 +53,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:focusable="false"
-        android:padding="16dp"
+        android:padding="12dp"
         android:src="@drawable/o"
         android:tint="@color/onBackground" />
 
@@ -63,7 +63,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:focusable="false"
-        android:padding="16dp"
+        android:padding="12dp"
         android:src="@drawable/square"
         android:tint="@color/onBackground" />
 
@@ -73,7 +73,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:focusable="false"
-        android:padding="15dp"
+        android:padding="12dp"
         android:src="@drawable/un_auto"
         android:tint="@color/onCardBackground" />
 
@@ -88,8 +88,8 @@
     android:focusable="false"
     android:padding="2dp"
     android:paddingTop="20dp"
-    android:src="@drawable/more"
     android:rotation="90"
+    android:src="@drawable/more"
     android:tint="@color/onCardBackground" />
 
   <LinearLayout
