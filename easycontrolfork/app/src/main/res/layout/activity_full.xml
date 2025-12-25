@@ -17,64 +17,63 @@
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <LinearLayout
       android:id="@+id/texture_view_layout"
-      android:layout_width="0dp"
-      android:layout_height="match_parent"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
       android:layout_weight="1"
       android:gravity="center"
       android:orientation="horizontal" />
 
     <LinearLayout
       android:id="@+id/nav_bar"
-      android:layout_width="40dp"
-      android:layout_height="match_parent"
-      android:layout_gravity="end"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
       android:background="@color/background"
-      android:gravity="center"
-      android:orientation="vertical"
-      android:paddingTop="60dp"
-      android:paddingBottom="20dp">
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:paddingStart="10dp"
+      android:paddingEnd="10dp">
 
       <ImageView
         android:id="@+id/button_back"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:focusable="false"
-        android:padding="4dp"
+        android:padding="15dp"
         android:src="@drawable/caret_left"
         android:tint="@color/onBackground" />
 
       <ImageView
         android:id="@+id/button_home"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:focusable="false"
-        android:padding="4dp"
+        android:padding="16dp"
         android:src="@drawable/o"
         android:tint="@color/onBackground" />
 
       <ImageView
         android:id="@+id/button_switch"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:focusable="false"
-        android:padding="4dp"
+        android:padding="16dp"
         android:src="@drawable/square"
         android:tint="@color/onBackground" />
 
       <ImageView
         android:id="@+id/button_auto_rotate"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:focusable="false"
-        android:padding="4dp"
+        android:padding="15dp"
         android:src="@drawable/un_auto"
         android:tint="@color/onCardBackground" />
 
@@ -88,9 +87,9 @@
     android:layout_gravity="top|end"
     android:focusable="false"
     android:padding="2dp"
-    android:rotation="90"
     android:paddingTop="20dp"
     android:src="@drawable/more"
+    android:rotation="90"
     android:tint="@color/onCardBackground" />
 
   <LinearLayout
@@ -98,8 +97,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="top|end"
-    android:layout_marginEnd="60dp"
-    android:layout_marginTop="25dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginEnd="10dp"
     android:background="@drawable/background_cron"
     android:elevation="6dp"
     android:orientation="vertical"
