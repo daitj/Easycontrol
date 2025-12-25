@@ -2,8 +2,6 @@ plugins {
   id 'com.android.application' version '8.2.2'
 }
 
-evaluationDependsOn(':server')
-
 def keystorePropertiesFile = rootProject.file('../keystore.properties')
 def keystoreProperties = new Properties()
 def hasKeystore = false
@@ -21,7 +19,7 @@ android {
     minSdk 21
     targetSdk 34
     versionCode 10004
-    versionName "1.0.4"
+    versionName "2.0.0"
     ndk {
       abiFilters "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
     }
@@ -78,12 +76,4 @@ android {
 
 dependencies {
   implementation 'androidx.documentfile:documentfile:1.0.1'
-}
-
-android.applicationVariants.all { variant ->
-    def variantName = variant.name.capitalize()
-    def taskName = "generate${variantName}Resources"
-    tasks.matching { it.name == taskName }.all {
-        dependsOn ":server:copy${variantName}"
-    }
 }
