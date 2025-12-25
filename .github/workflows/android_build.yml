@@ -29,11 +29,12 @@ jobs:
 
       - name: Decode Keystore and Setup Properties
         run: |
-          echo "${{ secrets.SIGNING_KEY }}" | base64 -d > easycontrolfork/app/upload_keystore.jks
           echo "MY_KEYSTORE_FILE=upload_keystore.jks" > keystore.properties
           echo "MY_KEY_ALIAS=${{ secrets.KEY_ALIAS }}" >> keystore.properties
           echo "MY_KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> keystore.properties
           echo "MY_KEYSTORE_PASSWORD=${{ secrets.STORE_PASSWORD }}" >> keystore.properties
+          mkdir -p easycontrolfork/app/
+          echo "${{ secrets.SIGNING_KEY }}" | base64 -d > easycontrolfork/app/upload_keystore.jks
 
       - name: Grant execute permission for gradlew
         run: chmod +x easycontrolfork/gradlew
