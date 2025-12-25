@@ -4,7 +4,11 @@ plugins {
 
 def keystorePropertiesFile = rootProject.file('../keystore.properties')
 def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+def hasKeystore = false
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    hasKeystore = true
+}
 
 android {
   namespace 'com.daitj.easycontrolfork.app'
@@ -15,7 +19,7 @@ android {
     minSdk 21
     targetSdk 34
     versionCode 10004
-    versionName "1.0.4"
+    versionName "2.0.0"
     ndk {
       abiFilters "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
     }
@@ -27,10 +31,12 @@ android {
   
   signingConfigs {
       release {
+        if (hasKeystore) {
           storeFile file(keystoreProperties['MY_KEYSTORE_FILE'])
           storePassword keystoreProperties['MY_KEYSTORE_PASSWORD']
           keyAlias keystoreProperties['MY_KEY_ALIAS']
           keyPassword keystoreProperties['MY_KEY_PASSWORD']
+        }
       }
   }
 
@@ -47,7 +53,9 @@ android {
       minifyEnabled true
       shrinkResources true
       proguardFiles 'proguard-rules.pro'
-      signingConfig signingConfigs.release
+      if (hasKeystore) {
+        signingConfig signingConfigs.release
+      }
     }
   }
 
@@ -57,18 +65,24 @@ android {
   }
 
   dependenciesInfo {
-    // Disables dependency metadata when building APKs.
     includeInApk = false
-    // Disables dependency metadata when building Android App Bundles.
     includeInBundle = false
   }
 
   packagingOptions {
     resources.excludes.add("META-INF/*")
   }
-
 }
 
 dependencies {
   implementation 'androidx.documentfile:documentfile:1.0.1'
+}
+
+project.afterEvaluate {
+    if (tasks.findByName('generateReleaseResources')) {
+        tasks.findByName('generateReleaseResources').dependsOn(':server:copyRelease')
+    }
+    if (tasks.findByName('generateDebugResources')) {
+        tasks.findByName('generateDebugResources').dependsOn(':server:copyDebug')
+    }
 }
