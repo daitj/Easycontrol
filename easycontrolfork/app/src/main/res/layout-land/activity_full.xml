@@ -29,7 +29,7 @@
 
     <LinearLayout
       android:id="@+id/nav_bar"
-      android:layout_width="40dp"
+      android:layout_width="50dp"
       android:layout_height="match_parent"
       android:layout_gravity="end"
       android:background="@color/background"
