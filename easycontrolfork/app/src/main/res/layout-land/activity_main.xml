@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@color/background">
+  android:background="@color/background"
+  android:orientation="horizontal">
+
+  <FrameLayout
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="5">
+
+    <ListView
+      android:id="@+id/devices_list"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:divider="#00000000"
+      android:dividerHeight="14dp"
+      android:padding="10dp"
+      tools:listitem="@layout/item_devices_item" />
+  </FrameLayout>
 
   <FrameLayout
     android:layout_width="0dp"
@@ -76,20 +91,4 @@
       android:src="@drawable/plus"
       android:tint="@color/onButton" />
   </FrameLayout>
-
-  <FrameLayout
-    android:layout_width="0dp"
-    android:layout_height="match_parent"
-    android:layout_weight="5">
-
-    <ListView
-      android:id="@+id/devices_list"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:divider="#00000000"
-      android:dividerHeight="14dp"
-      android:padding="10dp"
-      tools:listitem="@layout/item_devices_item" />
-  </FrameLayout>
-
 </LinearLayout>
