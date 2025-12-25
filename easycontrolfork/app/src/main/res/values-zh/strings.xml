@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">易控•远程控制Fork</string>
-  <string name="app_name_simple">易控Fork</string>
-  <string name="app_name_dev">易控•远程控制Beta</string>
+  <string name="app_name">易控Scrcpy</string>
+  <string name="app_name_simple">易控Scrcpy</string>
+  <string name="app_name_dev">易控Scrcpy</string>
 
   <!-- 主页 -->
   <string name="main_poem">春色三分，二分尘土，一分流水</string>
