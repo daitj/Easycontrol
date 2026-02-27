@@ -31,6 +31,10 @@ adb shell settings put system screen_off_timeout 86400000
 
 I have changed the fork's package named from `top.saymzx.easycontrol` to `com.daitj.easycontrolfork` as not to have issues when both are installed. 
 
+# Using already authenticated keys from Windows or Linux machine. 
+In Windows the keys are located at `%USERPROFILE%\.android` and in linux `$HOME/.android`, copy the content of `adbkey` (private key) and `adbkey.pub` (public key) to the Easycontrol from Custom ADB key settings. 
+You can access that from the hamburger menu on top right and select "Custom ADB key", remember to "Save" it after pasting the contents. 
+
 # Audit Report of original code
 
 List of adb commands this application used are 
